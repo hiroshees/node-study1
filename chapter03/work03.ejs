@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>index</title>
+</head>
+<body>
+    <h1><%= title%></h1>
+    <table border="1">
+        <tr>
+            <th>name</th>
+            <th>age</th>
+            <th>dept</th>
+        </tr>
+    <% for ( let employee of employees ) { %>
+        <tr>
+            <td><%=employee.name %></td>
+            <td><%=employee.age %></td>
+            <td><%=employee.dept %></td>
+        </tr>
+    <% } %>
+    </table>
+</body>
+</html>

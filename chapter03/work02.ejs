@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>index</title>
+</head>
+<body>
+    <h1><%= title%></h1>
+    <table border="1">
+    <% for( let i = 1; i <=9; i++ ) { %>
+        <tr>
+            <% for( let j = 1; j <= 9; j++ ) { %>
+                <td><%= i * j %></td>
+            <% } %>
+        </tr>
+    <% } %>
+    </table>
+</body>
+</html>
