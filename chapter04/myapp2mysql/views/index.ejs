@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <div>
+      <a href="/">一覧</a>
+      <a href="/new">新規作成</a>
+    </div>
+    <table border="1">
+      <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>age</th>
+        <th>dept</th>
+        <th>edit</th>
+      </tr>
+    <% for( let e of employees ) { %>
+      <tr>
+        <td><%= e.id %></td>
+        <td><%= e.name %></td>
+        <td><%= e.age %></td>
+        <td><%= e.dept %></td>
+        <td><a href="/edit?id=<%= e.id %>">編集</a></td>
+      </tr>
+    <% } %>
+    </table>
+  </body>
+</html>
