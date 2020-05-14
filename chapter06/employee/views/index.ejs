@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <div>
+      <a href="/">一覧</a>&nbsp;&nbsp;
+      <a href="/new">新規作成</a>&nbsp;&nbsp;
+      <a href="/ajax/work01">work01</a>&nbsp;&nbsp;
+      <a href="/ajax/work02">work02</a>&nbsp;&nbsp;
+      <a href="/ajax/work03">work03</a>&nbsp;&nbsp;
+    </div>
+    <table border="1">
+      <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>age</th>
+        <th>dept</th>
+        <th>created</th>
+        <th>updated</th>
+        <th>編集</th>
+        <th>削除</th>
+      </tr>
+    <% for( let e of data ) { %>
+      <tr>
+        <td><%= e.id %></td>
+        <td><%= e.name %></td>
+        <td><%= e.age %></td>
+        <td><%= e.dept %></td>
+        <td><%= utils.toDatetimeFormat(e.created) %></td>
+        <td><%= utils.toDatetimeFormat(e.updated) %></td>
+        <td><a href="/edit/<%= e.id %>">編集</a></td>
+        <td><a href="/delete/<%= e.id %>">削除</a></td>
+      </tr>
+    <% } %>
+    </table>
+    <div style="margin:10px 0 0 10px">
+      <form action="/" method="POST">
+        伝言:<input type="text" name="message">
+        <input type="submit" value="登録">
+      </form>
+    </div>
+    <div style="margin:10px 0 0 10px">
+      伝言:<%= message %>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <script src="/javascripts/jquery.min.js"></script>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script>
+      $(function(){
+        $("#btn").on("click", function(){
+          $.ajax('/ajax/work03',{
+            type: 'get',
+            data: { number: $('#number').val() },
+            dataType: 'json',
+          })
+          .done(function(data) {
+            console.log(data);
+            if( data["message"] == "not found") {
+              data.e.name = "";
+              data.e.age = "";
+              data.e.dept = "";
+              alert("not found");
+            }
+            $("#name").text(data.e.name);
+            $("#age").text(data.e.age);
+            $("#dept").text(data.e.dept);
+          })
+          .fail(function() {
+            window.alert('正しい結果を得られませんでした。');
+          });
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <div style="margin:10px 10px">
+      <input type="text" id="number">
+      <input type="button" id="btn" value="検索">
+    </div>
+    <div style="margin:10px 10px">
+      <div>name : <span id="name"></span></div>
+      <div>age : <span id="age"></span></div>
+      <div>dept : <span id="dept"></span></div>
+    </div>
+  </body>
+</html>
